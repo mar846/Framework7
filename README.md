@@ -6,9 +6,7 @@ Tabs (multiple views) Framework7 starter app template.
 
 ### 1. Download this repository
 ```
-git clone
-https://github.com/mar846/uts-isa.git
- my-app
+git clone https://github.com/mar846/uts-isa.git
 ```
 
 Repository will be downloaded into `my-app/` folder
