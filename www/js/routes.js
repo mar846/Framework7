@@ -40,6 +40,10 @@ routes = [
       }
   },
   {
+    path: '/detailOrder/',
+    url: './pages/detail-order.html',
+  },
+  {
     path: '/about/',
     url: './pages/about.html',
   },

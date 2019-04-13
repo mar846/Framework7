@@ -1,27 +1,83 @@
 <template>
   <div class="page" data-name="catalog">
-    <div class="navbar">
-      <div class="navbar-inner sliding">
-        <div class="title">Catalog</div>
-      </div>
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="title">History</div>
     </div>
-    <div class="page-content">
-      <div class="list links-list">
-        <ul>
-          {{#each products}}
-            <li><a href="/product/{{id}}/">{{title}}</a></li>
-          {{/each}}
-        </ul>
+  </div>
+  <div class="toolbar tabbar toolbar-top">
+    <div class="toolbar-inner">
+      <a href="#tab-1" class="tab-link tab-link-active">On Going</a>
+      <a href="#tab-2" class="tab-link">History</a>
+    </div>
+  </div>
+  <div class="tabs-swipeable-wrap">
+    <div class="tabs">
+      <!-- On Going tabs -->
+      <div id="tab-1" class="page-content tab tab-active">
+        <div class="block">
+          <!-- On Going Transaction -->
+          <div class="block block-strong inset">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                      <strong id="on-going-date">12 April 12</strong>
+                  </div>
+                  <div class="col text-right">
+                    <strong id="on-going-price">Rp. 100.000</strong>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="font-size:20px; color:#43d359;"></i><span id="on-going-start"> Start Point</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="font-size:20px; color:#ff0509;"></i><span id="on-going-end"> End Point</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- History Tabs -->
+      <div id="tab-2" class="page-content tab">
+        <div class="block">
+          <!-- History Transaction -->
+          <div class="block block-strong inset">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                      <strong id="on-going-date">12 April 12</strong>
+                  </div>
+                  <div class="col text-right">
+                    <strong id="on-going-price">Rp. 100.000</strong>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="font-size:20px; color:#43d359;"></i><span id="on-going-start"> Start Point</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="font-size:20px; color:#ff0509;"></i><span id="on-going-end"> End Point</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
-  return {
-    data: function () {
-      return {
-        products: this.$root.products,
-      };
-    }
-  };
+
 </script>
