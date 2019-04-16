@@ -31,6 +31,16 @@ var app  = new Framework7({
           title: 'Apple iPhone X',
           description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
         },
+      ],
+      location:[
+        {
+          id:'1',
+          name:'Dukuh Pakis'
+        },
+        {
+          id:'2',
+          name:'Dukuh Kupang'
+        },
       ]
     };
   },
@@ -78,4 +88,47 @@ $$('#register-screen .register-button').on('click',function(){
 
   // Alert username and password
   app.dialog.alert('Email: ' + email + '<br>Username: ' + username + '<br>Password: ' + password);
+});
+
+//order popup
+// Open dynamic popup
+$$('.order-popup').on('click', function () {
+  orderPopup.open();
+});
+var orderPopup = app.popup.create({
+  content: '<div class="popup" id="order-popup"><div class="view"><div class="page"><div class="navbar"><div class="navbar-inner"><div class="left"><a href="#" class="link popup-close"><i class="icon icon-back"></i></a></div><div class="title">Order</div></div></div><!-- Page Content --><div class="page-content"><div class="block-title">Pesan {{product.title}}</div><div class="block"><div class="list no-hairlines-md"><ul><li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Dari</div><div class="item-input-wrap"><input type="text" placeholder="Dari" readonly="readonly" id="from-picker"/></div></div></li><li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Ke</div><div class="item-input-wrap"><input type="text" placeholder="Tujuan" readonly="readonly" id="to-picker"/></div></div></li></ul></div></div><div class="block-title">Harga</div><div class="block block-strong inset"><h4 id="harga">Rp. 100.000</h4></div><div class="block"><button type="button" name="button" class="button button-round button-fill button-large color-orange" id="pesan">Pesan</button></div></div></div></div></div>',
+  // Events
+  on: {
+    open: function(data) {
+      //insert picker data from & to value
+      var pickerFrom = app.picker.create({
+        inputEl: '#from-picker',
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['Dukuh Pakis','Dukuh Kupang']
+          }
+        ]
+      });
+      var pickerTo = app.picker.create({
+        inputEl: '#to-picker',
+        cols: [
+          {
+            textAlign: 'center',
+            values: ['Dukuh Pakis','Dukuh Kupang']
+          }
+        ]
+      });
+    },
+    opened: function(data) {
+      $$("#order-popup #pesan").on('click',function() {
+        var from = $$('#order-popup #from-picker').val();
+        var to = $$('#order-popup #to-picker').val();
+        // app.dialog.alert('Sampean atene nang ' + to + ' teko ' + from);
+        redirect: '/catalog/';
+        orderPopup.close();
+        app.views.main.router.navigate('#view-catalog');
+      });
+    }
+  }
 });

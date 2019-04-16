@@ -4,42 +4,6 @@ routes = [
     url: './index.html',
   },
   {
-    path: '/order/',
-    url: './pages/order.html',
-    on: {
-        pageBeforeIn: function (event, page) {
-          // do something before page gets into the view
-          //insert picker data from & to value
-          var pickerFrom = app.picker.create({
-            inputEl: '#from-picker',
-            cols: [
-              {
-                textAlign: 'center',
-                values: ['Dukuh Pakis','Dukuh Kupang']
-              }
-            ]
-          });
-          var pickerTo = app.picker.create({
-            inputEl: '#to-picker',
-            cols: [
-              {
-                textAlign: 'center',
-                values: ['Dukuh Pakis','Dukuh Kupang']
-              }
-            ]
-          });
-        },
-        pageInit: function (event, page) {
-          // do something when page initialized
-          //order button$$('#harga').html('ggag');
-          $$('#pesan').on('click',function(){
-            var from = $$('#from-picker').val();
-            var to = $$('#to-picker').val();
-          });
-        },
-      }
-  },
-  {
     path: '/detailOrder/',
     url: './pages/detail-order.html',
   },
